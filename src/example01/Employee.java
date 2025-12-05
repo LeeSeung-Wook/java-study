@@ -61,7 +61,7 @@ public class Employee {
     }
 
     //생성자 ==========================================
-    Employee(String name, String phone){
+    Employee(String name, String phone) {
         this.name = name;
         this.phone = phone;
         dept = "미정";
@@ -71,7 +71,7 @@ public class Employee {
         position = "사원";
     }
 
-    Employee(String name, String phone, String dept){
+    Employee(String name, String phone, String dept) {
         this.name = name;
         this.phone = phone;
         this.dept = dept;
@@ -82,7 +82,7 @@ public class Employee {
     }
 
     Employee(String name, String phone, String dept,
-             int empNo, int salary, String account, String position){
+             int empNo, int salary, String account, String position) {
 
         this.name = name;
         this.phone = phone;
@@ -95,8 +95,8 @@ public class Employee {
 
     //출력 =======================================================
     void printInfo() {
-            System.out.println(name+" / "+phone+" / "+dept+
-                    " / "+empNo+" / "+position+" / "+salary+" / "+account);
+        System.out.println("{"+name + " / " + phone + " / " + dept +
+                " / " + empNo + " / " + position + " / " + salary + " / " + account+"}");
     }
 
     // 연봉 계산 ===================================================
@@ -104,21 +104,21 @@ public class Employee {
         return salary * 12;
     }
 
-    int calcYearSalaryWithBonus(){
-        if(position.equals("사원")){
-            salary = (int) ((salary*12)*1.1);
+    int calcYearSalaryWithBonus() {
+        if (position.equals("사원")) {
+            salary = (int) ((salary * 12) * 1.1);
         }
 
-        if(position.equals("대리")){
-            salary = (int) ((salary*12)*1.2);
+        if (position.equals("대리")) {
+            salary = (int) ((salary * 12) * 1.2);
         }
 
-        if(position.equals("과장")){
-            salary = (int) ((salary*12)*1.3);
+        if (position.equals("과장")) {
+            salary = (int) ((salary * 12) * 1.3);
         }
 
-        if(position.equals("부장")){
-            salary = (int) ((salary*12)*1.4);
+        if (position.equals("부장")) {
+            salary = (int) ((salary * 12) * 1.4);
         }
         return salary;
     }
@@ -126,22 +126,22 @@ public class Employee {
 
     // 승진 ===========================================
     void promote() {
-        if(position.equals("사원")){
+        if (position.equals("사원")) {
             position = "대리";
             salary = 3000000;
             return;
         }
-        if(position.equals("대리")){
+        if (position.equals("대리")) {
             position = "과장";
             salary = 4000000;
             return;
         }
-        if(position.equals("과장")){
+        if (position.equals("과장")) {
             position = "부장";
             salary = 5000000;
             return;
         }
-        if(position.equals("부장")){
+        if (position.equals("부장")) {
             position = "부장";
             return;
         }
@@ -149,8 +149,8 @@ public class Employee {
 
     static void paySalary(Employee e) {
         System.out.println("====이체 알림====");
-        System.out.println("[급여 이체 완료] "+e.name+"께 "
-                +e.salary+"원이 "+e.account+"계좌로 지급되었습니다.");
+        System.out.println("[급여 이체 완료] " + e.name + "께 "
+                + e.salary + "원이 " + e.account + "계좌로 지급되었습니다.");
     }
 
 }
