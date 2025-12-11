@@ -1,36 +1,38 @@
 package algo;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class LottoApp {
     public static void main(String[] args) {
-        int[] arr = new int[6];
+        //1.  준비
         Random random = new Random();
-        int i = 0;
+        int[] arr = new int[6];
 
-        while (i < arr.length) {
-            int n = random.nextInt(45) + 1;
-            int a = 0;
+        //2. 로또 번호 받기
+        int n;
+        boolean isSame;
 
-            for (int j = 0; j < arr.length; j++) {
-                if (arr[j] == n) {
-                    a = 1;
+        for (int k = 0; k < 6; k++) {
+            while (true){
+                isSame = false;
+                n = random.nextInt(45) + 1; // <- 9
+                for (int i = 0; i < k; i++) {
+                    if(arr[i] == n){
+                        isSame = true;
+                    }
+                }
+                if(!isSame){
+                    arr[k] = n;
                     break;
                 }
             }
-
-            if(a == 1)
-                continue;
-
-            arr[i] = n;
-            i++;
         }
 
-        System.out.print("[ ");
-        for (int j = 0; j < arr.length; j++) {
-            System.out.print(arr[j]+" ");
+        Arrays.sort(arr);
+        for (int a: arr){
+            System.out.print(a+" ");
         }
-        System.out.println(" ]");
-    }
 
+    } // end of main
 }

@@ -1,28 +1,37 @@
 package Test;
 
-import java.util.Random;
+import java.util.ArrayList;
 
 public class Test02 {
     public static void main(String[] args) {
-        int n = 20;
-        int j = 0;
-        int answer = 0;
-        int[] arr = new int[n];
-        int[] arr1 = {};
-        int a = 1;
-        for(int i = 0; i<arr.length; i++){
-            if(n % a == 0){
-                arr[i] = a;
-            }
-            a++;
-        }
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] != 0){
-                arr1[j] = arr[i];
-                j++;
-            }
-        }
-        System.out.println(arr1.length);
+        int n = 12;
+        int count = 0;
+        int[] numlist = {2,100,120,600,12,12};
 
+
+        int[] answer = new int[numlist.length];
+        int k = 0;
+        for(int i = 0; i < numlist.length; i++){
+            if(numlist[i]%n == 0){
+                answer[k] = numlist[i];
+                k++;
+            }
+        }
+        for (int i = 0; i < answer.length; i++) {
+            if(answer[i] != 0)
+                count++;
+        }
+        int[] exit = new int[count];
+        int h = 0;
+        for (int i = 0; i < answer.length; i++) {
+            if(answer[i] != 0){
+                exit[h] = answer[i];
+                h++;
+            }
+        }
+        System.out.println(count);
+        for(int i: exit){
+            System.out.print(i+" ");
+        }
     }
 }
