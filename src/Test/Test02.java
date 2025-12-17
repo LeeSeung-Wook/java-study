@@ -1,37 +1,35 @@
 package Test;
 
-import java.util.ArrayList;
-
 public class Test02 {
     public static void main(String[] args) {
-        int n = 12;
-        int count = 0;
-        int[] numlist = {2,100,120,600,12,12};
+        String str1 = "AbcAbcA";
+        String str2 = "AAA";
+        String st = "";
 
+        int answer = 0;
+        String[] arr = str1.split("");
+        String[] bss = str2.split("");
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i].equals(bss[0])){
+                for(int k = i; k < i + bss.length; k++){
+                    if(arr[k] == null)
+                        break;
+                    st = st + arr[k];
 
-        int[] answer = new int[numlist.length];
-        int k = 0;
-        for(int i = 0; i < numlist.length; i++){
-            if(numlist[i]%n == 0){
-                answer[k] = numlist[i];
-                k++;
+                }
+                if(st.equals(str2)) {
+                    break;
+                }
+                else
+                    st = "";
             }
         }
-        for (int i = 0; i < answer.length; i++) {
-            if(answer[i] != 0)
-                count++;
-        }
-        int[] exit = new int[count];
-        int h = 0;
-        for (int i = 0; i < answer.length; i++) {
-            if(answer[i] != 0){
-                exit[h] = answer[i];
-                h++;
-            }
-        }
-        System.out.println(count);
-        for(int i: exit){
-            System.out.print(i+" ");
-        }
+        if(st.equals(str2))
+            answer = 1;
+        else
+            answer = 2;
+
+        System.out.println(answer);
+
     }
 }
